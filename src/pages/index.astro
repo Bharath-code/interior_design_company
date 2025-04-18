@@ -1,0 +1,457 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import "../styles/global.css"
+import { getImage } from "astro:assets"
+
+// IMPORTANT: Download the hero image from:
+// https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80
+// and save it as 'hero-background.jpg' inside the 'src/assets/' directory.
+import heroImageSrc from "../assets/hero_image.avif"
+import Image from "astro/components/Image.astro"
+
+const optimizedHeroImage = await getImage({
+  src: heroImageSrc,
+  widths: [480, 768, 1280, 2000],
+  formats: ["avif", "webp"],
+  quality: 80, // Adjust quality as needed
+})
+
+const heroStyle = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${heroImageSrc.src});`
+console.log(optimizedHeroImage.options.src)
+---
+
+<BaseLayout
+  title="Home"
+  description="Luxury Interior Design Services for Modern Homes and Spaces"
+>
+  <!-- Hero Section -->
+  <section class="hero" style={heroStyle}>
+    <div class="hero-content">
+      <h1>Elevate Your Space</h1>
+      <p>Transforming interiors into extraordinary experiences</p>
+      <div class="hero-buttons">
+        <a href="/portfolio" class="btn">View Our Work</a>
+        <a href="/contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <div class="grid grid-2">
+        <div class="about-content fade-in">
+          <p>
+            At Luxe Interiors, we believe that exceptional design transforms
+            spaces and enhances lives. Our team of passionate designers combines
+            creativity with functionality to create spaces that reflect your
+            unique style and personality.
+          </p>
+          <p>
+            With years of experience in the industry, we've built a reputation
+            for delivering sophisticated, timeless interiors that exceed our
+            clients' expectations.
+          </p>
+          <a href="/about" class="btn">Learn More About Us</a>
+        </div>
+        <div class="about-image fade-in">
+          <Image
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+            alt="Luxurious interior design"
+            width="1932"
+            height="1288"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="section services-section">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="grid grid-3">
+          <div class="service-card fade-in">
+            <div class="service-icon">🏠</div>
+            <h3>Residential Design</h3>
+            <p>
+              Transform your home into a sanctuary that reflects your
+              personality and meets your lifestyle needs.
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">🏢</div>
+            <h3>Commercial Design</h3>
+            <p>
+              Create inspiring workspaces that boost productivity and impress
+              clients with our commercial design services.
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">🛋️</div>
+            <h3>Custom Furniture</h3>
+            <p>
+              Elevate your space with bespoke furniture pieces designed
+              specifically for your unique requirements.
+            </p>
+          </div>
+        </div>
+        <div class="services-cta">
+          <a href="/services" class="btn">Explore All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Preview Section -->
+    <section class="section portfolio-section">
+      <div class="container">
+        <h2 class="section-title">Recent Projects</h2>
+        <div class="grid grid-3">
+          <div class="portfolio-item fade-in">
+            <Image
+              src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              alt="Luxury living room design"
+              width="1974"
+              height="1316"
+            />
+            alt="Luxury living room design" />
+            <div class="portfolio-overlay">
+              <h3>Modern Minimalist Villa</h3>
+              <p>Residential Design</p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in">
+            <Image
+              src="https://images.unsplash.com/photo-1616137466211-f939a420be84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80"
+              alt="Elegant dining room"
+              width="1932"
+              height="1288"
+            />
+            alt="Elegant dining room" />
+            <div class="portfolio-overlay">
+              <h3>Contemporary Apartment</h3>
+              <p>Residential Design</p>
+            </div>
+          </div>
+          <div class="portfolio-item fade-in">
+            <Image
+              src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1970&q=80"
+              alt="Modern office space"
+              width="1970"
+              height="1313"
+            />
+            alt="Modern office space" />
+            <div class="portfolio-overlay">
+              <h3>Boutique Office Space</h3>
+              <p>Commercial Design</p>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-cta">
+          <a href="/portfolio" class="btn">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-slider">
+          <div class="testimonial fade-in">
+            <div class="testimonial-content">
+              <p>
+                "Luxe Interiors transformed our home beyond our expectations.
+                Their attention to detail and understanding of our vision was
+                impressive. We couldn't be happier with the results!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              {{ /* Changed h4 to p for semantic correctness */ }}
+              <p class="testimonial-author-name">Priya Sharma</p>
+              <p>Bangalore</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-content fade-in">
+          <h2>Ready to Transform Your Space?</h2>
+          <p>
+            Contact us today for a consultation and let's bring your vision to
+            life.
+          </p>
+          <a href="/contact" class="btn">Get Started</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <style>
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      /* Removed background-image here, now applied inline */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeInUp 1s ease-out 1s forwards;
+      opacity: 0;
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: white;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .about-image img {
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Services Section */
+    .services-section {
+      background-color: var(--light-color);
+    }
+
+    .service-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .services-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+      background-color: white;
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      height: 300px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 1.5rem;
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+
+    .portfolio-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      background-color: var(--light-color);
+    }
+
+    .testimonial {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .testimonial-content:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 10px 10px 0;
+      border-style: solid;
+      border-color: white transparent transparent;
+    }
+
+    .testimonial-author h4 {
+      margin-bottom: 0.25rem;
+    }
+
+    {{ /* Added style for the new p tag, mimicking the old h4 style if needed */ }}
+    .testimonial-author-name {
+      font-weight: 600; /* Example: Make it bold like a heading */
+      font-family: "Playfair Display", serif; /* Example: Use heading font */
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem; /* Adjust size as needed */
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-content p {
+      margin-bottom: 2rem;
+      font-size: 1.2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .portfolio-item {
+        height: 250px;
+      }
+    }
+  </style>
+
+  <script>
+    // Fade-in animation for elements when they come into view
+    document.addEventListener("DOMContentLoaded", function () {
+      const fadeElements = document.querySelectorAll(".fade-in")
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible")
+            }
+          })
+        },
+        { threshold: 0.1 }
+      )
+
+      fadeElements.forEach((element) => {
+        observer.observe(element)
+      })
+    })
+  </script>
+</BaseLayout>

@@ -1,0 +1,285 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import "../../styles/global.css"
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about our luxury interior design company and our approach to creating beautiful spaces"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Our story, mission, and design philosophy</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="section about-content-section">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="about-image fade-in">
+          <img
+            src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+            alt="Our design team at work"
+          />
+        </div>
+        <div class="about-text fade-in">
+          <h2>Our Story</h2>
+          <p>
+            Founded in 2015, Luxe Interiors began with a simple mission: to
+            create beautiful, functional spaces that reflect the unique
+            personalities and lifestyles of our clients. What started as a small
+            design studio has grown into a full-service interior design firm
+            with a reputation for excellence and innovation.
+          </p>
+          <p>
+            Our team of passionate designers brings together diverse backgrounds
+            and expertise, united by a shared commitment to exceptional design
+            and client satisfaction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section class="section mission-section">
+    <div class="container">
+      <h2 class="section-title">Our Mission</h2>
+      <div class="mission-content fade-in">
+        <p>
+          At Luxe Interiors, we believe that great design has the power to
+          transform not just spaces, but lives. Our mission is to create
+          environments that inspire, comfort, and delight—spaces that tell your
+          story and enhance your everyday experience.
+        </p>
+        <p>
+          We are committed to sustainable design practices, working with local
+          artisans and suppliers whenever possible, and creating spaces that
+          stand the test of time both in durability and style.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="section team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="grid grid-3">
+        <div class="team-member fade-in">
+          <div class="team-image">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1976&q=80"
+              alt="Aarav Patel"
+            />
+          </div>
+          <h3>Aarav Patel</h3>
+          <p class="team-title">Principal Designer & Founder</p>
+          <p>
+            With over 15 years of experience in interior design, Aarav brings a
+            wealth of knowledge and a keen eye for detail to every project.
+          </p>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-image">
+            <img
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80"
+              alt="Meera Singh"
+            />
+          </div>
+          <h3>Meera Singh</h3>
+          <p class="team-title">Senior Interior Designer</p>
+          <p>
+            Specializing in residential design, Meera is known for her ability
+            to blend functionality with aesthetics to create spaces that are
+            both beautiful and livable.
+          </p>
+        </div>
+        <div class="team-member fade-in">
+          <div class="team-image">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              alt="Vikram Reddy"
+            />
+          </div>
+          <h3>Vikram Reddy</h3>
+          <p class="team-title">Commercial Design Specialist</p>
+          <p>
+            With a background in architecture, Vikram brings a unique
+            perspective to our commercial projects, focusing on creating spaces
+            that enhance productivity and well-being.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2>Ready to Start Your Design Journey?</h2>
+        <p>Contact us today to schedule a consultation with our team.</p>
+        <a href="/contact" class="btn">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 8rem 0 4rem;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .page-header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* About Content Section */
+  .about-content-section {
+    background-color: white;
+  }
+
+  .about-image img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  /* Mission Section */
+  .mission-section {
+    background-color: var(--light-color);
+    text-align: center;
+  }
+
+  .mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .mission-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Team Section */
+  .team-section {
+    background-color: white;
+  }
+
+  .team-member {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+  }
+
+  .team-member:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+  }
+
+  .team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .team-title {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      url("https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white-color);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 6rem 0 3rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+    }
+
+    .team-image {
+      width: 150px;
+      height: 150px;
+    }
+  }
+</style>
+
+<script>
+  // Fade-in animation for elements when they come into view
+  document.addEventListener("DOMContentLoaded", function () {
+    const fadeElements = document.querySelectorAll(".fade-in")
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible")
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    fadeElements.forEach((element) => {
+      observer.observe(element)
+    })
+  })
+</script>
