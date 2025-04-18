@@ -21,7 +21,7 @@ pnpm-debug.log*
 
 # Astro generated files
 .astro/
-
+.vercel/
 # Editor directories and files
 .vscode/
 .idea/
