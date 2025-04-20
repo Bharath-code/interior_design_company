@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+// Sample project data (replace with your actual projects)
+const projects = [
+  {
+    title: "Modern Living Room",
+    description: "A cozy and contemporary living space design.",
+    image:
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1916&q=80",
+    alt: "Modern living room design",
+  },
+  {
+    title: "Minimalist Kitchen",
+    description: "Clean lines and functional design for a modern kitchen.",
+    image:
+      "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2768&q=80",
+    alt: "Minimalist kitchen design",
+  },
+  {
+    title: "Luxury Bedroom Suite",
+    description: "Elegant and comfortable bedroom retreat.",
+    image:
+      "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
+    alt: "Luxury bedroom suite design",
+  },
+  {
+    title: "Commercial Office Space",
+    description: "Productive and stylish workspace design.",
+    image:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80",
+    alt: "Commercial office space design",
+  },
+]
+
+const pageTitle = "Our Portfolio"
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      opacity: 0; /* Start hidden for animation */
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    /* Add staggered delay */
+    .project-card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    .project-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .project-card:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .project-card:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    /* Add more if needed */
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block; /* Remove extra space below image */
+    }
+    .project-info {
+      padding: 1rem;
+    }
+    .project-info h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+    .project-info p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  </style>
+
+  <h1>{pageTitle}</h1>
+
+  <div class="portfolio-grid">
+    {
+      projects.map((project) => (
+        <div class="project-card">
+          <img src={project.image} alt={project.alt} loading="lazy" />
+          <div class="project-info">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>
