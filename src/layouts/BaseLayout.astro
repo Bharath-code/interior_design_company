@@ -202,20 +202,53 @@ const {
   footer {
     background-color: var(--dark-color);
     color: var(--light-color);
-    padding: 4rem 0 2rem;
-    margin-top: 4rem;
+    padding: 4rem 0 2rem; /* Increased top padding, reduced bottom */
+    margin-top: 4rem; /* Add space above the footer */
   }
 
   .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(250px, 1fr)
+    ); /* Responsive columns */
+    gap: 3rem; /* Increased gap */
+    margin-bottom: 3rem; /* Increased bottom margin */
+    align-items: start; /* Align items to the top */
   }
 
   .footer-logo h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem; /* Match header logo size */
+    font-weight: 700;
+    margin-bottom: 0.5rem; /* Reduced margin */
+    color: var(--white-color);
+  }
+
+  .footer-logo p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .footer-links h4,
+  .footer-contact h4 {
+    font-size: 1.2rem; /* Slightly larger heading */
+    margin-bottom: 1.5rem; /* Increased margin */
+    color: var(--white-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Underline effect for footer headings */
+  .footer-links h4::after,
+  .footer-contact h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-color);
   }
 
   .footer-links ul {
@@ -223,21 +256,53 @@ const {
   }
 
   .footer-links li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem; /* Increased spacing */
+  }
+
+  .footer-links a {
+    color: var(--light-color);
+    opacity: 0.8;
+    transition:
+      opacity 0.3s ease,
+      color 0.3s ease; /* Smooth transition */
   }
 
   .footer-links a:hover {
-    color: var(--accent-color);
+    color: var(--white-color);
+    opacity: 1;
+    padding-left: 5px; /* Subtle hover effect */
   }
 
   .footer-contact p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem; /* Increased spacing */
+    font-size: 0.9rem;
+    opacity: 0.8;
   }
 
   .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem; /* Add padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  /* Responsive Footer */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr; /* Stack columns on smaller screens */
+      text-align: center; /* Center text */
+    }
+
+    .footer-links h4::after,
+    .footer-contact h4::after {
+      left: 50%; /* Center the underline */
+      transform: translateX(-50%);
+    }
+
+    .footer-links ul {
+      padding-left: 0; /* Remove default padding */
+    }
   }
 
   /* Responsive Styles */
