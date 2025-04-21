@@ -1,5 +1,4 @@
 ---
-import Analytics from "@vercel/analytics/astro"
 interface Props {
   title: string
   description?: string
@@ -37,7 +36,6 @@ const {
     <!-- LCP image optimization: use <img> with priority loading -->
   </head>
   <body>
-    <Analytics />
     <header class="header" role="banner" aria-label="Main site header">
       <div class="container">
         <div class="logo">
