@@ -1,0 +1,278 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+---
+
+<BaseLayout
+  title="Services"
+  description="Explore our luxury interior design services for modern homes and spaces."
+>
+  <section class="services-section">
+    <div class="container">
+      <h1 class="services-title">Our Services</h1>
+      <div class="services-list">
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="Residential Design"
+            loading="lazy"
+          />
+          <h3>Residential Interior Design</h3>
+          <p>
+            Transform your home into a luxurious sanctuary with bespoke designs
+            tailored to your lifestyle and taste.
+          </p>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+            alt="Commercial Design"
+            loading="lazy"
+          />
+          <h3>Commercial Spaces</h3>
+          <p>
+            Enhance productivity and brand identity with innovative, functional,
+            and stylish commercial interiors.
+          </p>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=400&q=80"
+            alt="Renovation"
+            loading="lazy"
+          />
+          <h3>Renovation & Remodeling</h3>
+          <p>
+            Revitalize existing spaces with creative renovations and expert
+            project management from concept to completion.
+          </p>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=80"
+            alt="Consultation"
+            loading="lazy"
+          />
+          <h3>Design Consultation</h3>
+          <p>
+            Get professional advice and design direction to elevate your space,
+            whether for a single room or an entire property.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="testimonial-title">What Our Clients Say</h2>
+      <div class="testimonial-carousel" id="testimonial-carousel">
+        <div class="testimonial-slide active">
+          <img
+            class="testimonial-avatar"
+            src="https://randomuser.me/api/portraits/women/44.jpg"
+            alt="Client 1"
+          />
+          <blockquote>
+            "Luxe Interiors completely transformed our home. The attention to
+            detail and personalized approach exceeded our expectations!"
+          </blockquote>
+          <p class="testimonial-name">— Priya S., Bangalore</p>
+        </div>
+        <div class="testimonial-slide">
+          <img
+            class="testimonial-avatar"
+            src="https://randomuser.me/api/portraits/men/32.jpg"
+            alt="Client 2"
+          />
+          <blockquote>
+            "Professional, creative, and always responsive. Our office space is
+            now both beautiful and functional. Highly recommend!"
+          </blockquote>
+          <p class="testimonial-name">— Rahul M., Bengaluru</p>
+        </div>
+        <div class="testimonial-slide">
+          <img
+            class="testimonial-avatar"
+            src="https://randomuser.me/api/portraits/women/65.jpg"
+            alt="Client 3"
+          />
+          <blockquote>
+            "From consultation to completion, the Luxe team made the process
+            seamless. We love our new interiors!"
+          </blockquote>
+          <p class="testimonial-name">— Anjali K., Whitefield</p>
+        </div>
+        <button
+          class="carousel-btn prev"
+          aria-label="Previous testimonial"
+          onclick="carouselPrev()">&#8592;</button
+        >
+        <button
+          class="carousel-btn next"
+          aria-label="Next testimonial"
+          onclick="carouselNext()">&#8594;</button
+        >
+      </div>
+    </div>
+    <script>
+      let current = 0
+      const slides = Array.from(document.querySelectorAll(".testimonial-slide"))
+      function showSlide(idx: number) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === idx)
+        })
+      }
+      function carouselPrev() {
+        current = (current - 1 + slides.length) % slides.length
+        showSlide(current)
+      }
+      function carouselNext() {
+        current = (current + 1) % slides.length
+        showSlide(current)
+      }
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") carouselPrev()
+        if (e.key === "ArrowRight") carouselNext()
+      })
+    </script>
+  </section>
+
+  <style>
+    .services-section {
+      background: var(--light-color);
+      padding: 6rem 0 3rem;
+      text-align: center;
+    }
+    .services-title {
+      font-size: 2.5rem;
+      margin-bottom: 2.5rem;
+      color: var(--secondary-color);
+    }
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(60, 60, 60, 0.08);
+      padding: 2rem 1.5rem 1.5rem;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(60, 60, 60, 0.12);
+    }
+    .service-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+    }
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+      color: var(--primary-color);
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: var(--text-color);
+      opacity: 0.85;
+    }
+    .testimonial-section {
+      background: var(--primary-color);
+      color: var(--white-color);
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .testimonial-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+    .testimonial-carousel {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .testimonial-slide {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+      min-height: 220px;
+    }
+    .testimonial-slide.active {
+      display: flex;
+      opacity: 1;
+    }
+    .testimonial-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+      object-fit: cover;
+      border: 3px solid var(--accent-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    blockquote {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: background 0.2s;
+      z-index: 2;
+    }
+    .carousel-btn:hover {
+      background: var(--secondary-color);
+    }
+    .carousel-btn.prev {
+      left: -48px;
+    }
+    .carousel-btn.next {
+      right: -48px;
+    }
+    @media (max-width: 600px) {
+      .services-list {
+        grid-template-columns: 1fr;
+      }
+      .testimonial-carousel {
+        max-width: 95vw;
+      }
+      .carousel-btn.prev {
+        left: 0;
+      }
+      .carousel-btn.next {
+        right: 0;
+      }
+    }
+  </style>
+</BaseLayout>
