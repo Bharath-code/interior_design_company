@@ -114,26 +114,26 @@ import BaseLayout from "../../layouts/BaseLayout.astro"
         >
       </div>
     </div>
-    <script>
+    <script is:inline>
       let current = 0
       const slides = Array.from(document.querySelectorAll(".testimonial-slide"))
-      function showSlide(idx: number) {
+      function showSlide(idx) {
         slides.forEach((slide, i) => {
           slide.classList.toggle("active", i === idx)
         })
       }
-      function carouselPrev() {
+      window.carouselPrev = function () {
         current = (current - 1 + slides.length) % slides.length
         showSlide(current)
       }
-      function carouselNext() {
+      window.carouselNext = function () {
         current = (current + 1) % slides.length
         showSlide(current)
       }
       // Keyboard navigation
       document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowLeft") carouselPrev()
-        if (e.key === "ArrowRight") carouselNext()
+        if (e.key === "ArrowLeft") window.carouselPrev()
+        if (e.key === "ArrowRight") window.carouselNext()
       })
     </script>
   </section>
